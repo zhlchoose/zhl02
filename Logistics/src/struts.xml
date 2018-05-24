@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="zhl" extends="struts-default">
+		<action name="Repertory_*" class="repertoryAction" method="{1}">
+			<result name="updateRepertory" type="chain">Repertory_findbyPager</result>
+			<result name="findbyPager">/RepertoryByPager.jsp</result>
+			<result name="findbyPager2">/RepertoryByPager2.jsp</result>
+			<result name="findbyPager3">/RepertoryByPager3.jsp</result>
+			<result name="updateRepertory2" type="chain">Repertory_findbyPager2</result>
+			<result name="updateRepertory3" type="chain">Repertory_findbyPager3</result>			
+		</action> 
+		<action name="Branch_*" class="branchAction" method="{1}">
+			<result name="findBranch">/showBranch.jsp</result>
+			<result name="findemp">/saveBranch.jsp</result>
+			<result name="saveBranch" type="chain">Branch_findBranch</result>
+			<result name="afterupdate">/upBranch.jsp</result>
+			<result name="delBranch" type="chain">Branch_findBranch</result>	
+			<result name="Update" type="chain">Branch_findBranch</result>
+			<result name="findbyPager">/BranchByPager.jsp</result>		
+		</action>
+		<action name="updatebr" class="branchAction" method="updatebr">
+			<result name="success" type="chain">Branch_findBranch</result>
+		</action>
+		<action name="Warehouse_*" class="wareHouseAction" method="{1}">
+		</action>
+	</package>
+</struts>    
